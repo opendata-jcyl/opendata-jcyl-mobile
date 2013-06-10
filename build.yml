@@ -1,0 +1,24 @@
+#sdk: "/usr/local/share/gems/gems/rhodes-3.5.1.12"
+sdkversion: 3.5.0
+name: opendata-jcyl-mobile
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 4.6
+applog: rholog.txt
+iphone:
+  configuration: Release
+  sdk: iphonesimulator5.0
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+  BundleIdentifier: com.rhomobile.opendata-jcyl-mobile
+  BundleURLScheme: opendata-jcyl-mobile
+wp:
+  productid: 'e516bf40-b435-0130-5902-3888e389d4de'
+symbian:
+  uid: '0xe6a3ffb2'
+android:
+  version: 2.1
+
+extensions: ["json", "another-extension"]
