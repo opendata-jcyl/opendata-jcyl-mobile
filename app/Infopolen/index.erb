@@ -1,13 +1,11 @@
 <div data-role="page">
 
 	<div data-role="header" data-position="inline">
-    <h1>Infopolens</h1>
+    <h1>Info polen</h1>
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
-      Home
+      Inicio
     </a>
-    <a href="<%= url_for :action => :new %>" class="ui-btn-right" data-icon="plus">
-      New
-    </a>
+    
 	</div>
 
   <div data-role="content">
@@ -15,8 +13,8 @@
       <% @infopolens.each do |infopolen| %>
       
           <li>
-            <a href="<%= url_for :action => :show, :id => infopolen.object %>">
-              <%= infopolen.id %>
+            <a href="<%= url_for :action => :show, :query => {:id => infopolen['_id']} %>">
+              <%= infopolen['ESTACIONES'] %> (<%= infopolen['TIPOS_POLINICOS'] %>)
             </a>
           </li>
       

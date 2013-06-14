@@ -1,58 +1,27 @@
 require 'rho/rhocontroller'
 require 'helpers/browser_helper'
+require 'json'
 
 class InfopolenController < Rho::RhoController
   include BrowserHelper
 
   # GET /Infopolen
   def index
-    @infopolens = Infopolen.find(:all)
+    response = Rho::AsyncHttp.get(:url => Rho::RhoConfig.REST_BASE_URL + "info_polens.json",
+      :headers => {"Content-Type" => "application/json"})
+    @infopolens = response["body"]
+
     render :back => '/app'
   end
 
   # GET /Infopolen/{1}
   def show
-    @infopolen = Infopolen.find(@params['id'])
-    if @infopolen
-      render :action => :show, :back => url_for(:action => :index)
-    else
-      redirect :action => :index
-    end
+    id = @params['id']
+    
+    response = Rho::AsyncHttp.get(:url => Rho::RhoConfig.REST_BASE_URL + "info_polens/" + id +".json",
+      :headers => {"Content-Type" => "application/json"})
+
+    @infopolen = response["body"]
   end
 
-  # GET /Infopolen/new
-  def new
-    @infopolen = Infopolen.new
-    render :action => :new, :back => url_for(:action => :index)
-  end
-
-  # GET /Infopolen/{1}/edit
-  def edit
-    @infopolen = Infopolen.find(@params['id'])
-    if @infopolen
-      render :action => :edit, :back => url_for(:action => :index)
-    else
-      redirect :action => :index
-    end
-  end
-
-  # POST /Infopolen/create
-  def create
-    @infopolen = Infopolen.create(@params['infopolen'])
-    redirect :action => :index
-  end
-
-  # POST /Infopolen/{1}/update
-  def update
-    @infopolen = Infopolen.find(@params['id'])
-    @infopolen.update_attributes(@params['infopolen']) if @infopolen
-    redirect :action => :index
-  end
-
-  # POST /Infopolen/{1}/delete
-  def delete
-    @infopolen = Infopolen.find(@params['id'])
-    @infopolen.destroy if @infopolen
-    redirect :action => :index  
-  end
 end

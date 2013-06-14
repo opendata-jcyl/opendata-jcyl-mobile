@@ -1,12 +1,9 @@
 <div data-role="page" data-add-back-btn="false">
 
   <div data-role="header" data-position="inline">
-    <h1><%= @infopolen.id %></h1>
+    <h1><%= @infopolen['ESTACIONES'] %></h1>
     <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
-      Back
-    </a>
-    <a href="<%= url_for :action => :edit, :id => @infopolen.object %>" class="ui-btn-right" data-icon="star">
-      Edit
+      Volver
     </a>
   </div>
 
@@ -14,43 +11,23 @@
     <ul data-role="listview">
       
           <li>
-            <div class="itemLabel">Id</div>
-            <div class="itemValue"><%= @infopolen.id %></div>
-          </li>
-      
-          <li>
             <div class="itemLabel">Fecha</div>
-            <div class="itemValue"><%= @infopolen.fecha %></div>
+            <div class="itemValue"><%= @infopolen['FECHA'] %></div>
           </li>
       
           <li>
-            <div class="itemLabel">Anio</div>
-            <div class="itemValue"><%= @infopolen.anio %></div>
+            <div class="itemLabel">Tipo pol&iacute;nico</div>
+            <div class="itemValue"><%= @infopolen['TIPOS_POLINICOS'] %></div>
           </li>
       
           <li>
-            <div class="itemLabel">Semana</div>
-            <div class="itemValue"><%= @infopolen.semana %></div>
+            <div class="itemLabel">Nivel</div>
+            <div class="itemValue"><%= @infopolen['PRECEDENTES'] %></div>
           </li>
       
           <li>
-            <div class="itemLabel">Estaciones</div>
-            <div class="itemValue"><%= @infopolen.estaciones %></div>
-          </li>
-      
-          <li>
-            <div class="itemLabel">TiposPolinicos</div>
-            <div class="itemValue"><%= @infopolen.tipos_polinicos %></div>
-          </li>
-      
-          <li>
-            <div class="itemLabel">Precedentes</div>
-            <div class="itemValue"><%= @infopolen.precedentes %></div>
-          </li>
-      
-          <li>
-            <div class="itemLabel">Prevision</div>
-            <div class="itemValue"><%= @infopolen.prevision %></div>
+            <div class="itemLabel">Previsi&oacute;n</div>
+            <div class="itemValue"><%= @infopolen['PREVISION'] %></div>
           </li>
       
     </ul>
