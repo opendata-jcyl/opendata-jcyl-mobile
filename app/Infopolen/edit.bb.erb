@@ -1,0 +1,59 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :show, :id => @infopolen.object %>
+    <h1>Edit <%= @infopolen.id%></h1>
+    <%= link_to "Delete", :action => :delete, :id => @infopolen.object %>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @infopolen.object %>"/>
+      <table>
+          
+          <tr>
+              <td class="itemLabel">Id: </td>
+              <td class="itemValue"><input type="text" name="infopolen[id]" value="<%= @infopolen.id %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Fecha: </td>
+              <td class="itemValue"><input type="text" name="infopolen[fecha]" value="<%= @infopolen.fecha %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Anio: </td>
+              <td class="itemValue"><input type="text" name="infopolen[anio]" value="<%= @infopolen.anio %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Semana: </td>
+              <td class="itemValue"><input type="text" name="infopolen[semana]" value="<%= @infopolen.semana %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Estaciones: </td>
+              <td class="itemValue"><input type="text" name="infopolen[estaciones]" value="<%= @infopolen.estaciones %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Tipos polinicos: </td>
+              <td class="itemValue"><input type="text" name="infopolen[tipos_polinicos]" value="<%= @infopolen.tipos_polinicos %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Precedentes: </td>
+              <td class="itemValue"><input type="text" name="infopolen[precedentes]" value="<%= @infopolen.precedentes %>"/></td>
+          </tr>
+          
+          <tr>
+              <td class="itemLabel">Prevision: </td>
+              <td class="itemValue"><input type="text" name="infopolen[prevision]" value="<%= @infopolen.prevision %>"/></td>
+          </tr>
+          
+      </table>
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

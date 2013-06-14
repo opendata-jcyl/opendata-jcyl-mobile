@@ -1,0 +1,58 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :index %>
+    <h1>New Infopolen</h1>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @infopolen.object %>"/>
+      <table>
+          
+            <tr>
+                <td class="itemLabel">Id: </td>
+                <td class="itemValue"><input type="text" name="infopolen[id]"/></td>
+            </tr>
+          
+            <tr>
+                <td class="itemLabel">Fecha: </td>
+                <td class="itemValue"><input type="text" name="infopolen[fecha]"/></td>
+            </tr>
+          
+            <tr>
+                <td class="itemLabel">Anio: </td>
+                <td class="itemValue"><input type="text" name="infopolen[anio]"/></td>
+            </tr>
+          
+            <tr>
+                <td class="itemLabel">Semana: </td>
+                <td class="itemValue"><input type="text" name="infopolen[semana]"/></td>
+            </tr>
+          
+            <tr>
+                <td class="itemLabel">Estaciones: </td>
+                <td class="itemValue"><input type="text" name="infopolen[estaciones]"/></td>
+            </tr>
+          
+            <tr>
+                <td class="itemLabel">Tipos polinicos: </td>
+                <td class="itemValue"><input type="text" name="infopolen[tipos_polinicos]"/></td>
+            </tr>
+          
+            <tr>
+                <td class="itemLabel">Precedentes: </td>
+                <td class="itemValue"><input type="text" name="infopolen[precedentes]"/></td>
+            </tr>
+          
+            <tr>
+                <td class="itemLabel">Prevision: </td>
+                <td class="itemValue"><input type="text" name="infopolen[prevision]"/></td>
+            </tr>
+          
+      </table>
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>
