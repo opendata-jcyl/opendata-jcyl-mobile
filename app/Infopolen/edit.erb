@@ -1,0 +1,61 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @infopolen.id %></h1>
+    <a href="<%= url_for :action => :show, :id => @infopolen.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+    <a href="<%= url_for :action => :delete, :id => @infopolen.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">
+      Delete
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @infopolen.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="infopolen[id]" class="fieldLabel">Id</label>
+            <input type="text" id="infopolen[id]" name="infopolen[id]" value="<%= @infopolen.id %>" <%= placeholder( "Id" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="infopolen[fecha]" class="fieldLabel">Fecha</label>
+            <input type="text" id="infopolen[fecha]" name="infopolen[fecha]" value="<%= @infopolen.fecha %>" <%= placeholder( "Fecha" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="infopolen[anio]" class="fieldLabel">Anio</label>
+            <input type="text" id="infopolen[anio]" name="infopolen[anio]" value="<%= @infopolen.anio %>" <%= placeholder( "Anio" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="infopolen[semana]" class="fieldLabel">Semana</label>
+            <input type="text" id="infopolen[semana]" name="infopolen[semana]" value="<%= @infopolen.semana %>" <%= placeholder( "Semana" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="infopolen[estaciones]" class="fieldLabel">Estaciones</label>
+            <input type="text" id="infopolen[estaciones]" name="infopolen[estaciones]" value="<%= @infopolen.estaciones %>" <%= placeholder( "Estaciones" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="infopolen[tipos_polinicos]" class="fieldLabel">Tipos polinicos</label>
+            <input type="text" id="infopolen[tipos_polinicos]" name="infopolen[tipos_polinicos]" value="<%= @infopolen.tipos_polinicos %>" <%= placeholder( "Tipos polinicos" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="infopolen[precedentes]" class="fieldLabel">Precedentes</label>
+            <input type="text" id="infopolen[precedentes]" name="infopolen[precedentes]" value="<%= @infopolen.precedentes %>" <%= placeholder( "Precedentes" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="infopolen[prevision]" class="fieldLabel">Prevision</label>
+            <input type="text" id="infopolen[prevision]" name="infopolen[prevision]" value="<%= @infopolen.prevision %>" <%= placeholder( "Prevision" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

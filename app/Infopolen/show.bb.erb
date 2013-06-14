@@ -1,0 +1,55 @@
+<div data-role="page" data-add-back-btn="true">
+
+  <div data-role="header" data-position="inline">
+    <%= link_to "Back", :action => :index %>
+    <h1><%= @infopolen.id %></h1>
+    <%= link_to "Edit", :action => :edit, :id => @infopolen.object %>
+  </div>
+
+  <div data-role="content">
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Id</td>
+        <td class="itemValue"><%= @infopolen.id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Fecha</td>
+        <td class="itemValue"><%= @infopolen.fecha%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Anio</td>
+        <td class="itemValue"><%= @infopolen.anio%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Semana</td>
+        <td class="itemValue"><%= @infopolen.semana%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Estaciones</td>
+        <td class="itemValue"><%= @infopolen.estaciones%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">TiposPolinicos</td>
+        <td class="itemValue"><%= @infopolen.tipos_polinicos%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Precedentes</td>
+        <td class="itemValue"><%= @infopolen.precedentes%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Prevision</td>
+        <td class="itemValue"><%= @infopolen.prevision%></td>
+      </tr>
+      
+    </table>
+  </div>
+
+</div>
