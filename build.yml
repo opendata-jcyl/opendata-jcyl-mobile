@@ -20,5 +20,6 @@ symbian:
   uid: '0xe6a3ffb2'
 android:
   version: 2.1
+  mapping: yes
 
 extensions: ["json", "another-extension"]
