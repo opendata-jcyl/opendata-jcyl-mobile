@@ -4,6 +4,9 @@ start_path = '/app'
 # path to the options page (in this case handled by javascript)
 options_path = '/app/Settings'
 
+# REST url base
+REST_BASE_URL = 'http://opendata-jcyl-site.herokuapp.com/'
+
 # location of bundle url (i.e. from rhohub.com); used by desktop win32 simulator
 rhobundle_zip_url = ''
 
@@ -86,3 +89,6 @@ jqtouch_mode=1
 splash_screen='zoom'
 
 use_bb_full_browser=6
+
+# OSM tile map server
+OSM_map_url_roadmap = 'http://otile1.mqcdn.com/tiles/1.0.0/map'
