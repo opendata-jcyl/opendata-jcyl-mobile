@@ -24,4 +24,21 @@ class InfopolenController < Rho::RhoController
     @infopolen = response["body"]
   end
 
+  def map_it
+    map_params = {
+     :provider => 'OSM',
+     :settings => {:map_type => "hybrid",:region => [@params['latitude'], @params['longitude'], 0.2, 0.2],
+                   :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false},
+     :annotations => [{
+                      :latitude => @params['latitude'], 
+                      :longitude => @params['longitude'], 
+                      :title => @params['station'], 
+                      :subtitle => @params['date']
+                      }]
+    }
+    MapView.create map_params
+
+    redirect :action => :index
+  end
+
 end
