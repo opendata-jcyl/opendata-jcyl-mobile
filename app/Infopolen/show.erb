@@ -30,6 +30,12 @@
             <div class="itemValue"><%= @infopolen['PREVISION'] %></div>
           </li>
       
+          <li>
+            <a href="<%= url_for :action => :map_it, :query => {:id => @infopolen["_id"], :longitude => @infopolen["COORD"][0], :latitude => @infopolen["COORD"][1], :station => @infopolen["ESTACIONES"], :date => @infopolen["FECHA"], :level => @infopolen["PRECEDENTES"], :prediction => @infopolen["PREVISION"]}%>">
+              <span class="title">Ver mapa</span>
+              <span class="disclosure_indicator"></span>
+            </a>
+          </li>
     </ul>
   </div>
 
