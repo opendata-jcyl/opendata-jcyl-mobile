@@ -7,11 +7,29 @@ class InfopolenController < Rho::RhoController
 
   # GET /Infopolen
   def index
-    response = Rho::AsyncHttp.get(:url => Rho::RhoConfig.REST_BASE_URL + "info_polens.json",
+    response = Rho::AsyncHttp.get(:url => Rho::RhoConfig.REST_BASE_URL + "info_polens/mapa.json",
       :headers => {"Content-Type" => "application/json"})
     @infopolens = response["body"]
 
-    render :back => '/app'
+    annotations = []
+
+    @infopolens.each do |infopolen|   
+      annotations << {
+        :longitude => infopolen['coordenadas'][0],
+        :latitude => infopolen['coordenadas'][1],
+        :title => infopolen['_id'],
+        :subtitle => infopolen['fecha']
+      }
+    end
+
+    map_params = {
+     :provider => 'OSM',
+     :settings => {:map_type => "hybrid",:region => [-4.724532099999999, 41.652251, 0.2, 0.2],
+                   :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false},
+     :annotations => annotations
+    }
+    MapView.create map_params
+
   end
 
   # GET /Infopolen/{1}
