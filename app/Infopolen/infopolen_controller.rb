@@ -18,14 +18,18 @@ class InfopolenController < Rho::RhoController
         :longitude => infopolen['coordenadas'][0],
         :latitude => infopolen['coordenadas'][1],
         :title => infopolen['_id'],
-        :subtitle => infopolen['fecha']
+        :subtitle => infopolen['fecha'],
+        :image => '/public/images/anemometer_mono.png', 
+        :image_x_offset => 8, 
+        :image_y_offset => 32, 
+        :url => '/app/Infopolen/show?station=' + infopolen['_id'] + '&date=' + infopolen['fecha'].to_s
       }
     end
 
     map_params = {
      :provider => 'OSM',
-     :settings => {:map_type => "hybrid",:region => [-4.724532099999999, 41.652251, 0.2, 0.2],
-                   :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false},
+     :settings => {:map_type => "hybrid", :region => [Rho::RhoConfig.LAT_DEFAULT, Rho::RhoConfig.LON_DEFAULT, 2.4, 2.4],
+                   :zoom_enabled => true, :scroll_enabled => true, :shows_user_location => false},
      :annotations => annotations
     }
     MapView.create map_params
@@ -34,29 +38,13 @@ class InfopolenController < Rho::RhoController
 
   # GET /Infopolen/{1}
   def show
-    id = @params['id']
+    station = @params['station']
+    date = @params['date']
     
-    response = Rho::AsyncHttp.get(:url => Rho::RhoConfig.REST_BASE_URL + "info_polens/" + id +".json",
+    response = Rho::AsyncHttp.get(:url => Rho::RhoConfig.REST_BASE_URL + 'info_polens/' + station + '/' + date.to_s + '/estaciones.json',
       :headers => {"Content-Type" => "application/json"})
 
     @infopolen = response["body"]
-  end
-
-  def map_it
-    map_params = {
-     :provider => 'OSM',
-     :settings => {:map_type => "hybrid",:region => [@params['latitude'], @params['longitude'], 0.2, 0.2],
-                   :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false},
-     :annotations => [{
-                      :latitude => @params['latitude'], 
-                      :longitude => @params['longitude'], 
-                      :title => @params['station'], 
-                      :subtitle => @params['date']
-                      }]
-    }
-    MapView.create map_params
-
-    redirect :action => :index
   end
 
 end
