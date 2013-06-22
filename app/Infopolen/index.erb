@@ -9,17 +9,7 @@
 	</div>
 
   <div data-role="content">
-    <ul data-role="listview">
-      <% @infopolens.each do |infopolen| %>
-      
-          <li>
-            <a href="<%= url_for :action => :show, :query => {:id => infopolen['_id']} %>">
-              <%= infopolen['ESTACIONES'] %> (<%= infopolen['TIPOS_POLINICOS'] %>)
-            </a>
-          </li>
-      
-      <% end %>
-    </ul>
+ 
   </div>
 
 </div>

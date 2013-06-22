@@ -10,32 +10,26 @@
   <div data-role="content">
     <ul data-role="listview">
       
-          <li>
-            <div class="itemLabel">Fecha</div>
-            <div class="itemValue"><%= @infopolen['FECHA'] %></div>
-          </li>
-      
-          <li>
-            <div class="itemLabel">Tipo pol&iacute;nico</div>
-            <div class="itemValue"><%= @infopolen['TIPOS_POLINICOS'] %></div>
-          </li>
-      
-          <li>
-            <div class="itemLabel">Nivel</div>
-            <div class="itemValue"><%= @infopolen['PRECEDENTES'] %></div>
-          </li>
-      
-          <li>
-            <div class="itemLabel">Previsi&oacute;n</div>
-            <div class="itemValue"><%= @infopolen['PREVISION'] %></div>
-          </li>
-      
-          <li>
-            <a href="<%= url_for :action => :map_it, :query => {:id => @infopolen["_id"], :longitude => @infopolen["COORD"][0], :latitude => @infopolen["COORD"][1], :station => @infopolen["ESTACIONES"], :date => @infopolen["FECHA"], :level => @infopolen["PRECEDENTES"], :prediction => @infopolen["PREVISION"]}%>">
-              <span class="title">Ver mapa</span>
-              <span class="disclosure_indicator"></span>
-            </a>
-          </li>
+      <li>
+        <div class="itemLabel">Fecha</div>
+        <div class="itemValue"><%= @infopolen['FECHA'].to_s %></div>
+      </li>
+  
+      <li>
+        <div class="itemLabel">Tipo pol&iacute;nico</div>
+        <div class="itemValue"><%= @infopolen['TIPOS_POLINICOS'] %></div>
+      </li>
+  
+      <li>
+        <div class="itemLabel">Nivel</div>
+        <div class="itemValue"><%= @infopolen['PRECEDENTES'] %></div>
+      </li>
+  
+      <li>
+        <div class="itemLabel">Previsi&oacute;n</div>
+        <div class="itemValue"><%= @infopolen['PREVISION'] %></div>
+      </li>
+
     </ul>
   </div>
 

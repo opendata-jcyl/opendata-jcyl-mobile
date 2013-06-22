@@ -1,11 +1,15 @@
 # startup page for your application
-start_path = '/app'
+start_path = '/app/Infopolen'
 
 # path to the options page (in this case handled by javascript)
 options_path = '/app/Settings'
 
 # REST url base
 REST_BASE_URL = 'http://opendata-jcyl-site.herokuapp.com/'
+
+# DEFAULT center location
+LAT_DEFAULT = 41.652251
+LON_DEFAULT = -4.724532099999999
 
 # location of bundle url (i.e. from rhohub.com); used by desktop win32 simulator
 rhobundle_zip_url = ''
